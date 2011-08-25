@@ -1,0 +1,26 @@
+#!/bin/bash
+
+COLCOUNT=80
+ROWCOUNT=22
+
+MAX=9
+
+row=0
+col=0
+
+number=0
+
+while [ "$row" -le $ROWCOUNT ]
+do
+    while [ "$col" -le $COLCOUNT ]
+    do
+        let "number = $RANDOM"
+        let "number %= MAX"
+        let "number +=  +1"
+        echo -ne "$number"
+        let "col += 1"
+    done
+    echo 
+    let "row += 1"
+    let "col = 0"
+done
