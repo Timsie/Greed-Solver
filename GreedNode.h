@@ -20,7 +20,8 @@ class GreedNode
     };
     
     public:
-        GreedNode(unsigned short int id, GreedNode* parent, Direction dir);
+        GreedNode(unsigned short int id, GreedNode* parent,
+                  unsigned short int numMoved, Direction dir);
 
         ~GreedNode();
 
@@ -28,7 +29,7 @@ class GreedNode
 
         unsigned short int getId();
 
-        unsigned short int getParentId();
+        GreedNode* getParent();
 
         Location getLocation();
         
@@ -36,7 +37,7 @@ class GreedNode
 
         void setLocation(Location loc);
 
-        void setParentId(unsigned short int pId);
+        void setParent(GreedNode& parent);
 
         void setId(unsigned short int id);
         
@@ -47,14 +48,16 @@ class GreedNode
         void setClearedMatrix(greedMatrix& parentMatrix);
 
         greedMatrix* m_clearedMatrix;
+
+        unsigned short int m_id;
+        
+        unsigned short int m_numberOfMoves;
+
+        GreedNode* m_parent;
         
         Direction m_dirCameFrom;
 
         Location m_location;
-
-        unsigned short int m_id;
-        
-        unsigned short int m_parentId;
 
         bool m_lastNode;
 };
