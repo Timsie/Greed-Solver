@@ -10,9 +10,9 @@ col=0
 
 number=0
 
-while [ "$row" -le $ROWCOUNT ]
+while [ "$row" -lt $ROWCOUNT ]
 do
-    while [ "$col" -le $COLCOUNT ]
+    while [ "$col" -lt $COLCOUNT ]
     do
         let "number = $RANDOM"
         let "number %= MAX"
