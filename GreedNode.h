@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cstdlib>
 
+#typedef unsigned short int greedMatrix[22][80];
 class GreedNode
 {
     enum Direction
@@ -18,13 +19,33 @@ class GreedNode
     };
     
     public:
-        GreedNode();
+        GreedNode(unsigned short int id, Greednode* parent, Direction dir);
 
-        GreedNode(unsigned short int id, unsigned short int parentId);
+        ~GreedNode();
 
+        greedMatrix getClearedMatrix();
+
+        unsigned short int getId();
+
+        unsigned short int getParentId();
+
+        Location getLocation();
+        
+        Direction getDirectionCameFrom();
+
+        void setLocation(Location loc);
+
+        void setParentId(unsigned short int pId);
+
+        void setId(unsigned short int id);
+        
+        void setDirectionCameFrom(Direction dir);
 
     private:
-        unsigned short int m_clearedMatrix [22,80];
+
+        void setClearedMatrix(greedMatrix parentMatrix);
+
+        greedMatrix m_clearedMatrix;
         
         Direction m_dirCameFrom;
 
