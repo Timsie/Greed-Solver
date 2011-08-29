@@ -91,9 +91,9 @@ int main (int argc, char ** argv)
 	
 	cout <<"\tBuilding move tree..." << endl;
 
-	GreedTree tree = GreedTree(startx, starty, boardArray);
+	GreedTree* tree = new GreedTree(startx, starty, &boardArray);
 	//GreedTree tree(startx, starty, boardArray);
-	//tree.buildTree(startx, starty, boardArray);
+//	tree.buildTree(startx, starty, boardArray);
 
 	return 1;
 }

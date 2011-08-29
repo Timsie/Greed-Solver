@@ -9,13 +9,19 @@
 class GreedTree
 {
 	public:
-		GreedTree(int startx, int starty, greedMatrix board);
+		GreedTree(int x, int y, greedMatrix& brd);
 
 		~GreedTree();
 
 		void buildTree();
 	private:
 		int m_nextNodeId;
+
+		int startX;
+
+		int startY;
+
+		greedMatrix board;
 };
 
 #endif
