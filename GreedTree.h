@@ -9,7 +9,7 @@
 class GreedTree
 {
 	public:
-		GreedTree(int startx, int starty, greedMatrix board);
+		GreedTree(int startx, int starty, greedMatrix& board);
 
 		~GreedTree();
 

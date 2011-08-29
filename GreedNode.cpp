@@ -8,7 +8,7 @@ GreedNode::GreedNode(unsigned short int id, GreedNode* parent,
     m_parent(parent),
     m_dirCameFrom(dir)
 {
-    setClearedMatrix(parent->getClearedMatrix());
+    setClearedMatrix();
 }
 
 GreedNode::~GreedNode()
@@ -60,11 +60,11 @@ void GreedNode::setDirectionCameFrom(GreedNode::Direction dir)
     m_dirCameFrom = dir;
 }
 
-void GreedNode::setClearedMatrix(greedMatrix& parentMatrix)
+void GreedNode::setClearedMatrix()
 {
-    unsigned short int x, y = 0;
+    unsigned short int x = 0, y = 0;
     unsigned short int one = 1;
-    m_clearedMatrix = &parentMatrix;
+    m_clearedMatrix = &m_parent->getClearedMatrix();
     GreedNode::Location loc = m_parent->getLocation();
     switch(m_dirCameFrom)
     {
@@ -72,7 +72,7 @@ void GreedNode::setClearedMatrix(greedMatrix& parentMatrix)
             y -= m_numberOfMoves;
             for(int r=loc.y; r>loc.y-y; r--)
             {
-//                 m_clearedMatrix[x][r] = one;
+                m_clearedMatrix->get(x,r) = one;
             }
             break;
         case GreedNode::BELOW:
