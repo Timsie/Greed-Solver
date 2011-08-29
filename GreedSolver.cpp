@@ -13,7 +13,7 @@ void printMatrix (greedMatrix array)
 	{
 		for (int c = 0; c < 80; c++)
 		{
-			cout << array[r][c];
+			cout << array.get(r,c);
 		}
 		cout << endl;
 	}
@@ -78,7 +78,7 @@ int main (int argc, char ** argv)
 		/* newlines need not apply */
 		if (nextVal != '\n')
 		{
-			boardArray[row][col] = atoi(&nextVal);
+			boardArray.get(row,col) = atoi(&nextVal);
 			col ++;
 		}
 	}
@@ -91,9 +91,8 @@ int main (int argc, char ** argv)
 	
 	cout <<"\tBuilding move tree..." << endl;
 
-	GreedTree* tree = new GreedTree(startx, starty, &boardArray);
-	//GreedTree tree(startx, starty, boardArray);
-//	tree.buildTree(startx, starty, boardArray);
+	GreedTree* tree = new GreedTree(startx, starty, boardArray);
+	(*tree).buildTree();
 
 	return 1;
 }

@@ -1,6 +1,7 @@
 #include "GreedTree.h"
 
-GreedTree::GreedTree(int x, int y, greedMatrix& brd)
+GreedTree::GreedTree(int x, int y, greedMatrix &board):
+    m_nextNodeId(0)
 {
 	startX = x;
 	startY = y;
@@ -14,5 +15,4 @@ GreedTree::~GreedTree()
 
 void GreedTree::buildTree()
 {
-
 }

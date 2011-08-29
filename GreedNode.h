@@ -1,7 +1,25 @@
 #include <iostream>
 #include <cstdlib>
 
-typedef unsigned short int greedMatrix[22][80];
+template<int w, int h>
+class Matrix
+{
+public:
+    Matrix() {}
+
+    unsigned short int& get(int x, int y)
+    {
+        return m_Matrix[y][x];
+    }
+
+private:
+    Matrix(const Matrix&);
+    Matrix& operator=(const Matrix&);
+
+    unsigned short int m_Matrix[h][w];
+};
+
+typedef Matrix<22, 80> greedMatrix;
 
 class GreedNode
 {
@@ -45,7 +63,7 @@ class GreedNode
 
     private:
 
-        void setClearedMatrix(greedMatrix& parentMatrix);
+        void setClearedMatrix();
 
         greedMatrix* m_clearedMatrix;
 
