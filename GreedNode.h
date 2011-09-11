@@ -13,8 +13,8 @@ public:
     }
 
 private:
-    Matrix(const Matrix&);
-    Matrix& operator=(const Matrix&);
+    //Matrix(const Matrix&);
+    //Matrix& operator=(const Matrix&);
 
     unsigned short int m_Matrix[h][w];
 };
@@ -23,7 +23,8 @@ typedef Matrix<22, 80> greedMatrix;
 
 class GreedNode
 {
-    enum Direction
+    public: 
+	enum Direction
     {
         ABOVE,
         BELOW,
@@ -38,6 +39,8 @@ class GreedNode
     };
     
     public:
+		GreedNode();
+
         GreedNode(unsigned short int id, GreedNode* parent,
                   unsigned short int numMoved, Direction dir);
 

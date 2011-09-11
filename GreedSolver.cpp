@@ -83,9 +83,6 @@ int main (int argc, char ** argv)
 		}
 	}
 
-/* test */
-//printMatrix (boardArray);
-
 	cout << "\tYou are starting at coordinates (" 
 		 << startx << ", " << starty << ")" << endl;
 	

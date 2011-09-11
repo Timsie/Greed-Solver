@@ -1,6 +1,8 @@
 #include "GreedNode.h" 
 
 
+GreedNode::GreedNode(){setClearedMatrix();}
+
 GreedNode::GreedNode(unsigned short int id, GreedNode* parent,
                      unsigned short int numMoves, Direction dir) :
     m_id(id),
